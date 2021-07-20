@@ -1,0 +1,19 @@
+#entrada-modal .row div{
+  width: 100%;
+  flex-direction: column;
+}
+
+#entrada-dados .input-group {
+  height: 5%;
+  width: 40%;
+}
+
+#entrada-modal .input-group-text{
+  width: 30%;
+  padding: 2px;
+}
+
+#entrada-modal .input-group {
+  width: 80%;
+  height: 5%;
+}

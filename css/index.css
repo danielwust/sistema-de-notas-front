@@ -1,0 +1,39 @@
+body {
+  background-color: gray;
+}
+
+.navbar-brand {
+  text-transform: uppercase;
+}
+
+#entrada-dados {
+margin-left: 5%;
+}
+
+#descricao, #detalhamento {
+  width: 70%;
+}
+
+#todosrecados {
+  background-color:rgba(29, 28, 28, 0.7);
+  border-radius: 20px;
+  color: white;
+  padding: 1%;
+}
+
+#listagem {
+  background-color:rgba(241, 226, 226, 0.15);
+  text-align: center;
+  border-radius: 20px;
+  margin-top: 2%;
+  padding: 2%;
+}
+
+.separar {
+	border-bottom: 1.5px solid rgba(29, 28, 28, 0.7);
+  margin-left: 0.5%;
+}
+
+.modal-footer button{
+  color: white;
+}

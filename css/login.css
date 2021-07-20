@@ -1,0 +1,66 @@
+body {
+    background-color: gray;
+}
+
+.sumida {
+    display: none;
+}
+
+#esquerda {
+    background-color: rgba(241, 226, 226, 0.15);
+    border-radius: 30px;
+    padding: 4%;
+}
+
+#outra {
+    background-color: rgba(241, 226, 226, 0.15);
+    border-radius: 30px;
+    padding: 7%;
+}
+
+#direita {
+    background-color: rgba(241, 226, 226, 0.15);
+    border-radius: 30px;
+    padding: 7%;
+}
+
+.navbar-brand {
+    text-transform: uppercase;
+}
+
+body {
+    background-image: url("../images/bg.gif");
+}
+
+.row {
+    text-align: center;
+}
+
+h1,
+h3,
+label,
+span {
+    color: white;
+}
+.acao {
+    color: chartreuse;
+}
+
+div img {
+    border-radius: 80px;
+    border: 8px solid #0d6efd;
+}
+
+#alerta-login {
+    display: flex;
+    justify-content: center;
+    margin: 1%;
+}
+
+.modal-footer button {
+    color: white;
+}
+
+.acao {
+    cursor: pointer;
+}
