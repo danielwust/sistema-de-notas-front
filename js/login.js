@@ -64,6 +64,6 @@ function checarSenha() {
         confirmacaosenha.innerHTML = "Senhas iguais!";
     } else {
         confirmacaosenha.style.color = "red";
-        confirmacaosenha.innerHTML = "Senhas não iguais";
+        confirmacaosenha.innerHTML = "Senhas dEferentes ;p";
     }
 }

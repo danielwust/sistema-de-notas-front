@@ -18,25 +18,30 @@ async function listarNotas() {
             authorization: "Bearer " + sessao.token,
         },
     });
+    console.log(data);
+    
+    if (!data) {
+        for (let nota of data) {
+            let horaNC = nota.updatedAt.slice(0, 10);
+            let horaC = horaNC.split("-").reverse().join("/");
 
-    for (let nota of data) {
-        let horaNC = nota.updatedAt.slice(0, 10);
-        let horaC = horaNC.split("-").reverse().join("/");
+            var criardiv = `<div id="recado-${nota.uid}" class="row mt-1 separar">`;
+            var botoes = `<button class="btn btn-danger" onclick="deletarNota('${nota.uid}')">Excluir</button>
+            <button class="btn btn-primary" onclick="editarNota('${nota.uid}')">Editar</button>`;
 
-        var criardiv = `<div id="recado-${nota.uid}" class="row mt-1 separar">`;
-        var botoes = `<button class="btn btn-danger" onclick="deletarNota('${nota.uid}')">Excluir</button>
-        <button class="btn btn-primary" onclick="editarNota('${nota.uid}')">Editar</button>`;
+            listagem.innerHTML += `${criardiv}<div class="col-1">${horaC}</div>
+            <div class="col-3 offset-1">${nota.descricao}</div><div class="col-4">${nota.detalhamento}</div>
+            <div class="col-3">${botoes}</div></div>`;
+        }
 
-        listagem.innerHTML += `${criardiv}<div class="col-1">${horaC}</div>
-        <div class="col-3 offset-1">${nota.descricao}</div><div class="col-4">${nota.detalhamento}</div>
-        <div class="col-3">${botoes}</div></div>`;
-    }
+        notas = data;
 
-    notas = data;
-
-    if (notas.length < 1) {
-        alertRecados.innerHTML = `${alertWarning} Sem notas para exibir, tente criar alguma hehe </div>`;
-        listagem.hidden = true;
+        if (notas.length < 1) {
+            alertRecados.innerHTML = `${alertWarning} Sem notas para exibir, tente criar alguma hehe </div>`;
+            listagem.hidden = true;
+        }
+    } else {
+        alertRecados.innerHTML = `${alertWarning} Sessão expirada, por favor efetuar login novamente, redirecionando.. </div>`;
     }
 }
 
