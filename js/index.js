@@ -13,13 +13,13 @@ if (!sessao.token) {
 async function listarNotas() {
     listagem.innerHTML = "";
 
-    const { data } = await axios(`/notas/${sessao.uid}/todas/`, {
+    const { data, status } = await axios(`/notas/${sessao.uid}/todas/`, {
         headers: {
             authorization: "Bearer " + sessao.token,
         },
     });
-    console.log(data);
-    if (data.status > 1) {
+
+    if (status > 199 && status < 299) {
         for (let nota of data) {
             let horaNC = nota.updatedAt.slice(0, 10);
             let horaC = horaNC.split("-").reverse().join("/");
@@ -41,6 +41,8 @@ async function listarNotas() {
         }
     } else {
         alertRecados.innerHTML = `${alertWarning} Sessão expirada, por favor efetuar login novamente, redirecionando.. </div>`;
+        encerrarSessao();
+        window.setTimeout(redirecionamento(), 5000);
     }
 }
 
@@ -116,6 +118,5 @@ async function salvarNota(who) {
     );
 
     alertRecados.innerHTML = `${alertPrimary} Nota de UID: ${who} editada como solicitado! </div>`;
-
     listarNotas();
 }
