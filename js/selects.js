@@ -1,6 +1,4 @@
-// const url = "http://sistema-de-notas-back.herokuapp.com";
-// const url = "http://growdevers-api-daniel.herokuapp.com";
-const url = "http://127.0.0.1:8080";
+const url = "https://sistema-de-notas-back.herokuapp.com";
 axios.defaults.baseURL = url;
 
 // SELETORES
