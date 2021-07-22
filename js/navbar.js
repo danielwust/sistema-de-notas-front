@@ -34,7 +34,7 @@ async function limparNotas() {
     });
 
     localStorage.removeItem("notas");
-    alertRecados.innerHTML = `${alertDanger} Notas limpas </div>`;
+    alertRecados.innerHTML = `${alertDanger} <img src='./images/borracha.png' width='3%'> Notas limpas </div>`;
 
     listarNotas();
 }

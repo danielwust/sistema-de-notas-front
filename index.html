@@ -76,35 +76,36 @@
     </header>
     <div class="container">
       <div class="row">
-        <div class="col-12">
+        <div class="card-deck text-center col-12">
           <h2 class="h1 mt-5">Meus Recados</h2>
         </div>
       </div>
-      <div id="entrada-dados">
-        <div class="row mt-3">
-          <div class="input-group">
-            <span class="input-group-text" id="descricaoo">Descrição</span>
-            <input type="text" id="descricao" aria-describedby="descricaoo">
-          </div>
-          <div class="input-group">
-            <span class="input-group-text" id="detalhamentoo">Detalhamento</span
-            >
-            <input
-              type="text"
-              id="detalhamento"
-              aria-describedby="detalhamentoo"
-          >
-          </div>
-          <div class="col-2 ml-1">
-            <button
-              type="submit"
-              class="btn btn-success"
-              onclick="inserirNota()">
-              Adicionar Nota
-            </button>
+      
+      <div class="row">
+        <div class="card-deck text-center">
+          <div id="entrada-dados">
+            <div class="row mt-3">
+              <div class="input-group">
+                <span class="input-group-text" id="descricaoo">Descrição</span>
+                <input type="text" id="descricao" aria-describedby="descricaoo">
+              </div>
+              <div class="input-group">
+                <span class="input-group-text" id="detalhamentoo">Detalhamento</span>
+                  <input type="text" id="detalhamento" aria-describedby="detalhamentoo">
+                </div>
+                <div class="col-2 ml-1">
+                  <button
+                  type="submit"
+                  class="btn btn-success"
+                  onclick="inserirNota()">
+                  Adicionar Nota
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+        
       <div id="todosrecados" class="mt-4">
         <div class="row text-center">
         <div class="col-3" id="ident">Última Atualização</div>

@@ -31,13 +31,12 @@ async function listarNotas() {
         <div class="col-3 offset-1">${nota.descricao}</div><div class="col-4">${nota.detalhamento}</div>
         <div class="col-3">${botoes}</div></div>`;
     }
-    
+
     notas = data;
 
     if (notas.length < 1) {
         alertRecados.innerHTML = `${alertWarning} Sem notas para exibir, tente criar alguma hehe </div>`;
-    } else {
-        alertRecados.innerHTML = `${alertPrimary} <img src='./images/check.png' width='3%'> Notas carregadas com sucesso </div>`;
+        listagem.hidden = true;
     }
 }
 
@@ -63,7 +62,7 @@ async function inserirNota() {
 
     listarNotas();
 
-    alertRecados.innerHTML = `${alertSuccess} Nota adicionada com sucesso! </div>`;
+    alertRecados.innerHTML = `${alertSuccess} <img src='./images/check.png' width='3%'> Nota adicionada com sucesso! </div>`;
 }
 
 async function deletarNota(what) {
@@ -73,7 +72,7 @@ async function deletarNota(what) {
         },
     });
 
-    alertRecados.innerHTML = `${alertDanger} Nota deletada como desejado! </div>`;
+    alertRecados.innerHTML = `${alertDanger} <img src='./images/borracha.png' width='3%'> Nota deletada como desejado! </div>`;
     listarNotas();
 }
 
