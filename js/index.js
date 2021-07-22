@@ -3,16 +3,11 @@ var sessao = {};
 
 if (localStorage.sessao) {
     sessao = JSON.parse(localStorage.sessao);
+    listarNotas();
 }
 
 if (!sessao.token) {
     window.location.href = "login.html";
-}
-
-if (!notas) {
-    alertRecados.innerHTML = `${alertWarning} Sem notas para exibir, tente criar alguma hehe </div>`;
-} else {
-    listarNotas();
 }
 
 async function listarNotas() {
@@ -35,6 +30,14 @@ async function listarNotas() {
         listagem.innerHTML += `${criardiv}<div class="col-1">${horaC}</div>
         <div class="col-3 offset-1">${nota.descricao}</div><div class="col-4">${nota.detalhamento}</div>
         <div class="col-3">${botoes}</div></div>`;
+    }
+    
+    notas = data;
+
+    if (notas.length < 1) {
+        alertRecados.innerHTML = `${alertWarning} Sem notas para exibir, tente criar alguma hehe </div>`;
+    } else {
+        alertRecados.innerHTML = `${alertPrimary} <img src='./images/check.png' width='3%'> Notas carregadas com sucesso </div>`;
     }
 }
 
@@ -59,6 +62,8 @@ async function inserirNota() {
     alertRecados.innerHTML = "";
 
     listarNotas();
+
+    alertRecados.innerHTML = `${alertSuccess} Nota adicionada com sucesso! </div>`;
 }
 
 async function deletarNota(what) {
