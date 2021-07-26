@@ -18,7 +18,7 @@ async function listarNotas() {
             authorization: "Bearer " + sessao.token,
         },
     });
-console.log(status);
+    
     switch (status) {
         case 200:
             for (let nota of data) {
@@ -43,12 +43,12 @@ console.log(status);
 
             break;
         case 401:
-            alertRecados.innerHTML = `${alertWarning} Sessão expirada (401), por favor efetuar login novamente, redirecionando.. </div>`;
+            alertRecados.innerHTML = `${alertWarning} Sessão expirada (Não Autorizado), por favor efetuar login novamente, redirecionando.. </div>`;
             encerrarSessao();
             window.setTimeout(redirecionamento(), 5000);
             break;
         default:
-            alertRecados.innerHTML = `${alertWarning} Sessão expirada (Default), por favor efetuar login novamente, redirecionando.. </div>`;
+            alertRecados.innerHTML = `${alertWarning} Sessão expirada (Erro Interno), por favor efetuar login novamente, redirecionando.. </div>`;
             encerrarSessao();
             window.setTimeout(redirecionamento(), 5000);
     }
