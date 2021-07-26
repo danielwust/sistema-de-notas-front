@@ -11,12 +11,11 @@ if (!sessao.token) {
 }
 
 async function consultarBanco() {
-    const { data, status } = await axios(`/notas/${sessao.uid}/todas/`, {
+    return await axios(`/notas/${sessao.uid}/todas/`, {
         headers: {
             authorization: "Bearer " + sessao.token,
         },
     });
-    return data, status;
 }
 
 function listarNotas() {
