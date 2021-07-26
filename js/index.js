@@ -20,7 +20,7 @@ async function listarNotas() {
     });
     
     switch (status) {
-        case 200:
+        case 200 || 201 || 204:
             for (let nota of data) {
                 let horaNC = nota.updatedAt.slice(0, 10);
                 let horaC = horaNC.split("-").reverse().join("/");
