@@ -18,12 +18,9 @@ async function listarNotas() {
             authorization: "Bearer " + sessao.token,
         },
     });
-    await carregarNotas(data, status);
-}
 
-async function carregarNotas(todasNotas, status) {
-    if (status > 199 && status < 299) {
-        for (let nota of todasNotas) {
+    if (await status > 199 && await status < 299) {
+        for (let nota of data) {
             let horaNC = nota.updatedAt.slice(0, 10);
             let horaC = horaNC.split("-").reverse().join("/");
 
@@ -36,7 +33,7 @@ async function carregarNotas(todasNotas, status) {
             <div class="col-3">${botoes}</div></div>`;
         }
 
-        notas = todasNotas;
+        notas = data;
 
         if (notas.length < 1) {
             alertRecados.innerHTML = `${alertWarning} Sem notas para exibir, tente criar alguma hehe </div>`;
