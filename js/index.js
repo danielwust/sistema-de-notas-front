@@ -10,34 +10,17 @@ if (!sessao.token) {
     window.location.href = "index.html";
 }
 
-async function consultarBanco(){
+async function listarNotas() {
+    listagem.innerHTML = "";
+
     const { data, status } = await axios(`/notas/${sessao.uid}/todas/`, {
         headers: {
             authorization: "Bearer " + sessao.token,
         },
     });
-    return status;
-}
 
-async function listarNotas() {
-    const status = await consultarBanco();
-    const data = {};
-    console.log(data,status,typeof status);
-    listagem.innerHTML = "";
-
-    if (status != 401) {
-        for (let nota of data) {
-            let horaNC = nota.updatedAt.slice(0, 10);
-            let horaC = horaNC.split("-").reverse().join("/");
-
-            var criardiv = `<div id="recado-${nota.uid}" class="row mt-1 separar">`;
-            var botoes = `<button class="btn btn-danger" onclick="deletarNota('${nota.uid}')">Excluir</button>
-            <button class="btn btn-primary" onclick="editarNota('${nota.uid}')">Editar</button>`;
-
-            listagem.innerHTML += `${criardiv}<div class="col-1">${horaC}</div>
-            <div class="col-3 offset-1">${nota.descricao}</div><div class="col-4">${nota.detalhamento}</div>
-            <div class="col-3">${botoes}</div></div>`;
-        }
+    if (status > 199 && status < 299) {
+        carregandoNotas(data);
 
         notas = data;
 
@@ -49,6 +32,21 @@ async function listarNotas() {
         alertRecados.innerHTML = `${alertWarning} Sessão expirada, por favor efetuar login novamente, redirecionando.. </div>`;
         encerrarSessao();
         window.setTimeout(redirecionamento(), 5000);
+    }
+}
+
+function carregandoNotas(listaNotas) {
+    for (let nota of listaNotas) {
+        let horaNC = nota.updatedAt.slice(0, 10);
+        let horaC = horaNC.split("-").reverse().join("/");
+
+        var criardiv = `<div id="recado-${nota.uid}" class="row mt-1 separar">`;
+        var botoes = `<button class="btn btn-danger" onclick="deletarNota('${nota.uid}')">Excluir</button>
+        <button class="btn btn-primary" onclick="editarNota('${nota.uid}')">Editar</button>`;
+
+        listagem.innerHTML += `${criardiv}<div class="col-1">${horaC}</div>
+        <div class="col-3 offset-1">${nota.descricao}</div><div class="col-4">${nota.detalhamento}</div>
+        <div class="col-3">${botoes}</div></div>`;
     }
 }
 
