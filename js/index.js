@@ -7,7 +7,7 @@ if (localStorage.sessao) {
 }
 
 if (!sessao.token) {
-    window.location.href = "login.html";
+    window.location.href = "index.html";
 }
 
 async function listarNotas() {
@@ -19,7 +19,7 @@ async function listarNotas() {
         },
     });
 
-    if (status > 199 && status < 299) {
+    if (status != 401) {
         for (let nota of data) {
             let horaNC = nota.updatedAt.slice(0, 10);
             let horaC = horaNC.split("-").reverse().join("/");

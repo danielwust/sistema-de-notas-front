@@ -33,5 +33,5 @@ const modaldescricao = document.getElementById("modaldescricao");
 const alertLogin = document.getElementById("alerta-login");
 
 function redirecionamento() {
-    window.location.href = "index.html";
+    window.location.href = "notas.html";
 }
