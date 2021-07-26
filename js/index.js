@@ -10,16 +10,19 @@ if (!sessao.token) {
     window.location.href = "index.html";
 }
 
-async function listarNotas() {
-    listagem.innerHTML = "";
-
+async function consultarBanco() {
     const { data, status } = await axios(`/notas/${sessao.uid}/todas/`, {
         headers: {
             authorization: "Bearer " + sessao.token,
         },
     });
+    return data, status;
+}
 
-    listagem.innerHTML = (status, typeof status);
+function listarNotas() {
+    const { data, status } = consultarBanco();
+    console.log(data, status, typeof status);
+    listagem.innerHTML = "";
 
     if (status != 401) {
         for (let nota of data) {
