@@ -19,7 +19,7 @@ async function listarNotas() {
         },
     });
 
-    if (await status > 199 && await status < 299) {
+    if (status) {
         for (let nota of data) {
             let horaNC = nota.updatedAt.slice(0, 10);
             let horaC = horaNC.split("-").reverse().join("/");
