@@ -19,7 +19,7 @@ async function consultarBanco(){
     return status;
 }
 
-function listarNotas() {
+async function listarNotas() {
     const status = await consultarBanco();
     const data = {};
     console.log(data,status,typeof status);
