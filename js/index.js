@@ -18,7 +18,7 @@ async function listarNotas() {
             authorization: "Bearer " + sessao.token,
         },
     });
-
+console.log(status);
     switch (status) {
         case 200:
             for (let nota of data) {
