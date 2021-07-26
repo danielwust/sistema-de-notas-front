@@ -20,6 +20,8 @@ async function listarNotas() {
     });
 
     if (status != 401) {
+        consol.log(status)
+        consol.log(typeof status)
         for (let nota of data) {
             let horaNC = nota.updatedAt.slice(0, 10);
             let horaC = horaNC.split("-").reverse().join("/");
