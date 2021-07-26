@@ -21,6 +21,7 @@ async function consultarBanco(){
 
 function listarNotas() {
     const status = consultarBanco();
+    const data = {};
     console.log(data,status,typeof status);
     listagem.innerHTML = "";
 
