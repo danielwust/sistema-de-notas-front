@@ -12,7 +12,7 @@ sessao = JSON.parse(localStorage.sessao);
 
 if (sessao.token) {
     alertLogin.innerHTML = `${alertPrimary} Usuario já logado, redirecionando </div>`;
-    window.setTimeout(pular('existe'), 5000);
+    window.setTimeout(pular('sim'), 5000);
 }
 
 async function criarConta(event) {
@@ -54,7 +54,7 @@ async function efetuarLogin(event) {
 
     if (data.token.length > 20) {
         alertLogin.innerHTML = `${alertPrimary} Login Efetuado, redirecionando </div>`;
-        window.setTimeout(pular(), 2500);
+        window.setTimeout(pular(), 3500);
     }
 }
 

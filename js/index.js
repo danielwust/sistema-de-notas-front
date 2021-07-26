@@ -7,7 +7,7 @@ if (localStorage.sessao) {
 }
 
 if (!sessao.token) {
-    window.location.href = "index.html";
+    pular('sim');
 }
 
 async function listarNotas() {
