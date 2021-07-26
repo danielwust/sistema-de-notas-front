@@ -45,12 +45,12 @@ async function listarNotas() {
         case 401:
             alertRecados.innerHTML = `${alertWarning} Sessão expirada (Não Autorizado), por favor efetuar login novamente, redirecionando.. </div>`;
             encerrarSessao();
-            window.setTimeout(redirecionamento(), 5000);
+            window.setTimeout(pular(), 5000);
             break;
         default:
             alertRecados.innerHTML = `${alertWarning} Sessão expirada (Erro Interno), por favor efetuar login novamente, redirecionando.. </div>`;
             encerrarSessao();
-            window.setTimeout(redirecionamento(), 5000);
+            window.setTimeout(pular(), 5000);
     }
 }
 

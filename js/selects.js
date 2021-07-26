@@ -32,6 +32,11 @@ const modaldescricao = document.getElementById("modaldescricao");
 
 const alertLogin = document.getElementById("alerta-login");
 
-function redirecionamento() {
-    window.location.href = "index.html";
+function pular(sim) {
+    if (!sim){
+        window.location.href = "index.html";
+    } else {
+        window.location.href = "notas.html";
+    }
+
 }
