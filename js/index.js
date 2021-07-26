@@ -20,7 +20,7 @@ async function consultarBanco(){
 }
 
 function listarNotas() {
-    const status = consultarBanco();
+    const status = await consultarBanco();
     const data = {};
     console.log(data,status,typeof status);
     listagem.innerHTML = "";
