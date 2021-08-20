@@ -11,7 +11,7 @@ async function inserirNotaRapida() {
                 {
                     detalhamento: modaldetalhamento.value,
                     descricao: modaldetalhamento.value,
-                    usuariosUID: sessao.uid,
+                    usuarioUid: sessao.uid,
                 },
                 {
                     headers: {

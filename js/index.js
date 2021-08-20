@@ -60,7 +60,7 @@ async function inserirNota() {
         {
             detalhamento: detalhamento.value,
             descricao: descricao.value,
-            usuariosUID: sessao.uid,
+            usuarioUid: sessao.uid,
         },
         {
             headers: {
@@ -116,7 +116,7 @@ async function salvarNota(who) {
         {
             descricao: ndesc,
             detalhamento: ndeta,
-            usuariosUID: sessao.uid,
+            usuarioUid: sessao.uid,
         },
         {
             headers: {

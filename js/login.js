@@ -54,7 +54,7 @@ async function efetuarLogin(event) {
 
     if (data.token.length > 20) {
         alertLogin.innerHTML = `${alertPrimary} Login Efetuado, redirecionando </div>`;
-        window.setTimeout(pular(), 3500);
+        window.setTimeout(pular(), 5000);
     }
 }
 

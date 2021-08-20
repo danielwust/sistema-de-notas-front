@@ -1,4 +1,5 @@
-const url = "https://sistema-de-notas-back.herokuapp.com";
+// const url = "https://sistema-de-notas-back.herokuapp.com";
+const url = "http://localhost:8080/api";
 axios.defaults.baseURL = url;
 
 const alertWarning = '<div class="alert alert-warning" role="alert">';
