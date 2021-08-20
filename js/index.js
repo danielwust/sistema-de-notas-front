@@ -7,7 +7,7 @@ if (localStorage.sessao) {
 }
 
 if (!sessao.token) {
-    pular('sim');
+    pular();
 }
 
 async function listarNotas() {
