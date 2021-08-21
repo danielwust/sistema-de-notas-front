@@ -55,7 +55,7 @@ async function listarNotas() {
 }
 
 async function inserirNota() {
-    const { data } = await axios.post(
+    await axios.post(
         "/notas/",
         {
             detalhamento: detalhamento.value,
@@ -90,6 +90,19 @@ async function deletarNota(what) {
     listarNotas();
 }
 
+async function limparNotas() {
+    await axios.delete(`/notas/${sessao.uid}/limpar`, {
+        headers: {
+            authorization: "Bearer " + sessao.token,
+        },
+    });
+
+    console.log(sessao.uid);
+
+    alertRecados.innerHTML = `${alertDanger} <img src='./images/borracha.png' width='3%'> Nota deletada como desejado! </div>`;
+    listarNotas();
+}
+
 async function editarNota(who) {
     const { data } = await axios(`/notas/${who}`, {
         headers: {
@@ -111,7 +124,7 @@ async function salvarNota(who) {
     const ndesc = document.getElementById("ndesc").value;
     const ndeta = document.getElementById("ndeta").value;
 
-    const { data } = await axios.put(
+    await axios.put(
         `/notas/${who}`,
         {
             descricao: ndesc,
